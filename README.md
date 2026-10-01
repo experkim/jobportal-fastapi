@@ -4,6 +4,8 @@ Claude Code 강의 Part 5~7에서 사용하는 실습용 구인·구직 포털�
 백엔드는 FastAPI + SQLite, 화면은 Jinja2 템플릿으로 구성되어 있으며,
 첫 실행 시 회사 50곳과 채용 공고 1,000건이 자동으로 시드됩니다.
 
+- **GitHub 저장소**: https://github.com/experkim/jobportal-fastapi
+
 ## 로컬 환경 설정
 
 1. **Python 확인**: `python --version` (3.11 이상 권장)
