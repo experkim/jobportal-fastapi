@@ -22,6 +22,11 @@ jobportal-fastapi/
 ├── static/               # css/style.css (CSS 변수·다크모드), js/main.js
 └── jobportal.db          # SQLite (첫 실행 시 자동 생성·시드)
 ```
+## Git 규칙
+- 새작업은 'main'에서 브랜치를 만들어 시작한다. ('feature/', 'fix/', 'docs/')
+- 커밋메시지는 Conventional Commits 형식을사용한다.
+- `main`에 직접 push하지않고 항상 PR을 사용한다.
+- 커밋전 'pytest'와 'ruff check' 를실행한다
 
 ## 데모 계정
 
