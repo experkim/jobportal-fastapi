@@ -97,14 +97,30 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--bo
 .footer-col a:hover { color: var(--primary); }
 .footer-bottom { border-top: 1px solid var(--border); padding: 14px 20px; font-size: 0.8rem; color: var(--muted); }
 
-/* Tooltip — data-tip 속성이 있는 링크에 호버 시 말풍선 표시 */
+/* Tooltip — data-tip 속성이 있는 링크에 호버/포커스 시 말풍선 표시 */
 .tooltip { position: relative; }
-.tooltip[data-tip]:hover::after {
+.tooltip[data-tip]::after,
+.tooltip[data-tip]::before {
+  position: absolute; left: 0; pointer-events: none; z-index: 20;
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+}
+.tooltip[data-tip]::after {
   content: attr(data-tip);
-  position: absolute; bottom: 120%; left: 0;
+  bottom: calc(100% + 10px);
+  width: max-content; max-width: 220px;
   background: var(--text); color: var(--bg);
-  padding: 6px 10px; border-radius: 6px; font-size: 0.75rem;
-  white-space: nowrap; z-index: 20;
+  padding: 7px 11px; border-radius: 8px; font-size: 0.75rem; line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+.tooltip[data-tip]::before {
+  content: "";
+  bottom: calc(100% + 4px); left: 12px;
+  border: 6px solid transparent; border-top-color: var(--text); border-bottom: 0;
+}
+.tooltip[data-tip]:hover::after, .tooltip[data-tip]:hover::before,
+.tooltip[data-tip]:focus-visible::after, .tooltip[data-tip]:focus-visible::before {
+  opacity: 1; visibility: visible; transform: translateY(0);
 }
 
 /* Responsive */
